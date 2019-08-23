@@ -33,11 +33,10 @@
   <script type="text/javascript" src="main.bundle.js"></script></body> 
 </html>
 <script type="module" >
-  import {Workbox} from 'https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-window.prod.mjs';
 
   // Check that service workers are supported
   if ('serviceWorker' in navigator) {
-    /*// Use the window load event to keep the page load performant
+    // Use the window load event to keep the page load performant
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/service-worker.js')
       .then( function ( registration ) { // Registration was successful
@@ -45,49 +44,7 @@
       }).catch( function ( err ) { // registration failed :(
         console.error( "ServiceWorker registration failed: ", err );
       });
-    });*/
-
-    const wb = new Workbox('/service-worker.js');
-
-    // Add an event listener to detect when the registered
-    // service worker has installed but is waiting to activate.
-    wb.addEventListener('waiting', (event) => {
-      // `event.wasWaitingBeforeRegister` will be false if this is
-      // the first time the updated service worker is waiting.
-      // When `event.wasWaitingBeforeRegister` is true, a previously
-      // updated same service worker is still waiting.
-      // You may want to customize the UI prompt accordingly.
-
-      // Assumes your app has some sort of prompt UI element
-      // that a user can either accept or reject.
-      const prompt = createUIPrompt({
-        onAccept: async () => {
-          // Assuming the user accepted the update, set up a listener
-          // that will reload the page as soon as the previously waiting
-          // service worker has taken control.
-          wb.addEventListener('controlling', (event) => {
-            window.location.reload();
-          });
-
-          // Send a message telling the service worker to skip waiting.
-          // This will trigger the `controlling` event handler above.
-          // Note: for this to work, you have to add a message
-          // listener in your service worker. See below.
-          wb.messageSW({type: 'SKIP_WAITING'});
-        },
-
-        onReject: () => {
-          prompt.dismiss();
-        }
-      })
     });
-
-    wb.register()
-    .then( function ( registration ) { // Registration was successful
-          console.log( "ServiceWorker registration successful with scope: ", registration.scope );
-    }).catch( function ( err ) { // registration failed :(
-        console.error( "ServiceWorker registration failed: ", err );
-    });;
   }
   </script>
   
