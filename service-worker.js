@@ -32,4 +32,4 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 workbox.routing.registerRoute(/\.(?:png|jpg|jpeg|svg)$/, new workbox.strategies.StaleWhileRevalidate({ "cacheName":"images", plugins: [new workbox.expiration.Plugin({ maxEntries: 20, purgeOnQuotaError: false })] }), 'GET');
-workbox.routing.registerRoute(/^https:\/\/rslots\.gp2play\.com\/captainrabbit\/?fun=1&op=w88&log=1&lang=en/, new workbox.strategies.StaleWhileRevalidate({ "cacheName":"captainRabbit", plugins: [new workbox.cacheableResponse.Plugin({ statuses: [ 0, 200 ] })] }), 'GET');
+workbox.routing.registerRoute('https://rslots.gp2play.com/captainrabbit/?fun=1&op=w88&log=1&lang=en', new workbox.strategies.CacheFirst({ "cacheName":"captainRabbitApp"}), 'GET');
