@@ -1,0 +1,92 @@
+{"frames": {
+
+"GenericCoin_00.png":
+{
+	"frame": {"x":1,"y":1,"w":60,"h":60},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":60},
+	"sourceSize": {"w":60,"h":60}
+},
+"GenericCoin_01.png":
+{
+	"frame": {"x":63,"y":1,"w":59,"h":60},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":59,"h":60},
+	"sourceSize": {"w":60,"h":60}
+},
+"GenericCoin_02.png":
+{
+	"frame": {"x":239,"y":1,"w":52,"h":60},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":0,"w":52,"h":60},
+	"sourceSize": {"w":60,"h":60}
+},
+"GenericCoin_03.png":
+{
+	"frame": {"x":338,"y":1,"w":40,"h":60},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":0,"w":40,"h":60},
+	"sourceSize": {"w":60,"h":60}
+},
+"GenericCoin_04.png":
+{
+	"frame": {"x":410,"y":1,"w":25,"h":60},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":16,"y":0,"w":25,"h":60},
+	"sourceSize": {"w":60,"h":60}
+},
+"GenericCoin_05.png":
+{
+	"frame": {"x":437,"y":1,"w":12,"h":60},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":21,"y":0,"w":12,"h":60},
+	"sourceSize": {"w":60,"h":60}
+},
+"GenericCoin_06.png":
+{
+	"frame": {"x":380,"y":1,"w":28,"h":60},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":12,"y":0,"w":28,"h":60},
+	"sourceSize": {"w":60,"h":60}
+},
+"GenericCoin_07.png":
+{
+	"frame": {"x":293,"y":1,"w":43,"h":60},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":0,"w":43,"h":60},
+	"sourceSize": {"w":60,"h":60}
+},
+"GenericCoin_08.png":
+{
+	"frame": {"x":184,"y":1,"w":53,"h":60},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":0,"w":53,"h":60},
+	"sourceSize": {"w":60,"h":60}
+},
+"GenericCoin_09.png":
+{
+	"frame": {"x":124,"y":1,"w":58,"h":60},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":58,"h":60},
+	"sourceSize": {"w":60,"h":60}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "tot_win_coins.png",
+	"format": "RGBA8888",
+	"size": {"w":450,"h":62},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:f009091cce75a1fbc7800dbe01031d6c:2cc35178560385328fc496d087124422:8f511d4ab17de364f330b833013a5fd3$"
+}
+}

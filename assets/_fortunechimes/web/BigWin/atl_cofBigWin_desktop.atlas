@@ -1,0 +1,130 @@
+
+atl_cofBigWin_desktop.png
+size: 988,997
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+FX_Sunburst
+  rotate: false
+  xy: 2, 279
+  size: 717, 716
+  orig: 717, 716
+  offset: 0, 0
+  index: -1
+WL1_txt2
+  rotate: false
+  xy: 697, 3
+  size: 289, 144
+  orig: 289, 144
+  offset: 0, 0
+  index: -1
+bigWin_hanger2
+  rotate: true
+  xy: 721, 149
+  size: 846, 254
+  orig: 846, 254
+  offset: 0, 0
+  index: -1
+bigWin_tube03
+  rotate: true
+  xy: 2, 2
+  size: 145, 501
+  orig: 145, 501
+  offset: 0, 0
+  index: -1
+note01
+  rotate: true
+  xy: 2, 167
+  size: 110, 297
+  orig: 110, 297
+  offset: 0, 0
+  index: -1
+note02
+  rotate: false
+  xy: 505, 5
+  size: 190, 272
+  orig: 190, 272
+  offset: 0, 0
+  index: -1
+
+atl_cofBigWin_desktop2.png
+size: 907,996
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+CN_WL1_txt1
+  rotate: false
+  xy: 705, 554
+  size: 198, 210
+  orig: 198, 210
+  offset: 0, 0
+  index: -1
+CN_WL1_txt2
+  rotate: false
+  xy: 705, 342
+  size: 198, 210
+  orig: 198, 210
+  offset: 0, 0
+  index: -1
+FX_Light1
+  rotate: true
+  xy: 224, 104
+  size: 890, 479
+  orig: 890, 479
+  offset: 0, 0
+  index: -1
+WL1_txt1
+  rotate: true
+  xy: 705, 33
+  size: 307, 170
+  orig: 307, 170
+  offset: 0, 0
+  index: -1
+bigWin_pendulum
+  rotate: false
+  xy: 2, 77
+  size: 220, 917
+  orig: 220, 917
+  offset: 0, 0
+  index: -1
+note03
+  rotate: true
+  xy: 224, 2
+  size: 100, 267
+  orig: 100, 267
+  offset: 0, 0
+  index: -1
+note04
+  rotate: false
+  xy: 705, 766
+  size: 200, 228
+  orig: 200, 228
+  offset: 0, 0
+  index: -1
+
+atl_cofBigWin_desktop3.png
+size: 948,678
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+FX_Light2
+  rotate: true
+  xy: 2, 175
+  size: 501, 377
+  orig: 501, 377
+  offset: 0, 0
+  index: -1
+bigWin_hanger1
+  rotate: false
+  xy: 2, 2
+  size: 846, 171
+  orig: 846, 171
+  offset: 0, 0
+  index: -1
+bigWin_tube01
+  rotate: true
+  xy: 381, 519
+  size: 157, 565
+  orig: 157, 565
+  offset: 0, 0
+  index: -1
