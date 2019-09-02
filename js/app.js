@@ -29,47 +29,42 @@ var addBtn;
 window.onload = function () {
     document.body.appendChild(app.view);
 };
-var loader = new PIXI.loaders.Loader();
-loader.add("image", "assets/_fortunechimes/button.png");
-loader.onComplete.add(function () {
-    A2HS.initialize(function () {
-        // add a2hs button
-        /*addBtn = new Button(PIXI.utils.TextureCache["image"]);
-        addBtn.setPos(new PIXI.Point(60, 30));
-        app.stage.addChild(addBtn.sprite);
-        addBtn.addClickHandler(() => {
-          try {
-              A2HS.installPromptEvent.prompt();
-              // Wait for the user to respond to the prompt
-              A2HS.installPromptEvent.userChoice.then((choice) => {
-                  if (choice.outcome === 'accepted') {
-                      console.log('User accepted the A2HS prompt');
-                  } else {
-                      console.log('User dismissed the A2HS prompt');
-                  }
-                  A2HS.installPromptEvent = null;
-              });
-          } catch (e) {
-                  console.log(e);
-          }
-        });*/
-        var a = confirm("DO YOU WANT TO INSTALL PWA?");
-        if (a == true) {
-            A2HS.installPromptEvent.prompt();
-            // Wait for the user to respond to the prompt
-            A2HS.installPromptEvent.userChoice.then(function (choice) {
-                if (choice.outcome === 'accepted') {
-                    console.log('User accepted the A2HS prompt');
-                }
-                else {
-                    console.log('User dismissed the A2HS prompt');
-                }
-                A2HS.installPromptEvent = null;
-            });
-        }
-    });
+A2HS.initialize(function () {
+    // add a2hs button
+    /*addBtn = new Button(PIXI.utils.TextureCache["image"]);
+    addBtn.setPos(new PIXI.Point(60, 30));
+    app.stage.addChild(addBtn.sprite);
+    addBtn.addClickHandler(() => {
+      try {
+          A2HS.installPromptEvent.prompt();
+          // Wait for the user to respond to the prompt
+          A2HS.installPromptEvent.userChoice.then((choice) => {
+              if (choice.outcome === 'accepted') {
+                  console.log('User accepted the A2HS prompt');
+              } else {
+                  console.log('User dismissed the A2HS prompt');
+              }
+              A2HS.installPromptEvent = null;
+          });
+      } catch (e) {
+              console.log(e);
+      }
+    });*/
+    var a = confirm("DO YOU WANT TO INSTALL PWA?");
+    if (a == true) {
+        A2HS.installPromptEvent.prompt();
+        // Wait for the user to respond to the prompt
+        A2HS.installPromptEvent.userChoice.then(function (choice) {
+            if (choice.outcome === 'accepted') {
+                console.log('User accepted the A2HS prompt');
+            }
+            else {
+                console.log('User dismissed the A2HS prompt');
+            }
+            A2HS.installPromptEvent = null;
+        });
+    }
 });
-loader.load();
 
 },{"./addToHomeScreen":1,"pixi.js":142}],3:[function(require,module,exports){
 /**
