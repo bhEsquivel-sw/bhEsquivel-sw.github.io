@@ -1,5 +1,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
+self.skipWaiting();
+self.clients.claim();
 workbox.setConfig({ debug: false });
 
 
@@ -11,29 +13,11 @@ self.addEventListener('push', (event) => {
   };
   event.waitUntil(self.registration.showNotification(title, options));
 });
-self.addEventListener('install', (event) => {
-  console.log('👷', 'install', event);
-  self.skipWaiting();
-});
-
-self.addEventListener('activate', (event) => {
-  console.log('👷', 'activate', event);
-  return self.clients.claim();
-});
-
-self.addEventListener('fetch', function(event) {
-  // console.log('👷', 'fetch', event);
-  event.respondWith(fetch(event.request));
-});
 
 workbox.precaching.precacheAndRoute([
   {
     "url": "index.html",
     "revision": "4b7557c25f69d801f74dbc87cdbcfa84"
-  },
-  {
-    "url": "js/app.js",
-    "revision": "a985e3b1445eec5989f2978abfdf4d0d"
   }
 ]);
 
@@ -62,16 +46,3 @@ this.workbox.core.setCacheNameDetails({
     prefix: 'rslots-pwa',
     suffix: `v:${version}`,
 });
-
-const assets = 'http://localhost:3000/games/fortunechimes/assets/'
-
-workbox.routing.registerRoute(
-    new RegExp(assets),
-    workbox.strategies.staleWhileRevalidate({
-        cacheName: 'rslots-fchimes-assets',
-        plugins: [
-            expirationPlugin,
-            cacheOpaques
-        ]
-    }),
-);
