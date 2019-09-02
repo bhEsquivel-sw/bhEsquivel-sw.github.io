@@ -63,7 +63,7 @@ this.workbox.core.setCacheNameDetails({
     suffix: `v:${version}`,
 });
 
-const assets = 'http://localhost:3000/games/fortunechimes/assets/'
+const assets = 'https://bhEsquivel-sw.github.io/assets/'
 
 workbox.routing.registerRoute(
     new RegExp(assets),
