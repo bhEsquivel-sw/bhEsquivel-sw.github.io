@@ -72,6 +72,7 @@ var addToHomeScreen_1 = require("./addToHomeScreen");
 var button_1 = require("./game/button");
 var Game = /** @class */ (function () {
     function Game() {
+        var _this = this;
         this.moveLeft = false;
         this.symbolSprites = [];
         this.symbols = [];
@@ -88,8 +89,29 @@ var Game = /** @class */ (function () {
         pixi_js_1.loader.add('bg', '/assets/_fortunechimes/bg/bg-main.jpg');
         pixi_js_1.loader.add('btn', '/assets/_fortunechimes/button.png');
         // then launch app
-        pixi_js_1.loader.load(this.setup.bind(this));
+        // loader.load(this.setup.bind(this));
+        pixi_js_1.loader.load(function (loader, resources) {
+            /*  // resources is an object where the key is the name of the resource loaded and the value is the resource object.
+              // They have a couple default properties:
+              // - `url`: The URL that the resource was loaded from
+              // - `error`: The error that happened when trying to load (if any)
+              // - `data`: The raw data that was loaded
+              // also may contain other properties based on the middleware that runs.
+              sprites.bunny = new PIXI.TilingSprite(resources.bunny.texture);
+              sprites.spaceship = new PIXI.TilingSprite(resources.spaceship.texture);
+              sprites.scoreFont = new PIXI.TilingSprite(resources.scoreFont.texture);*/
+        });
+        // throughout the process multiple signals can be dispatched.
+        pixi_js_1.loader.onProgress.add(function () { }); // called once per loaded/errored file
+        pixi_js_1.loader.onError.add(function () { _this.onLoadError(); }); // called once per errored file
+        pixi_js_1.loader.onLoad.add(function () { }); // called once per loaded file
+        pixi_js_1.loader.onComplete.add(function () { _this.onLoadFinished(); }); // called once when the queued resources all load.
     }
+    Game.prototype.onLoadFinished = function () {
+        this.setup();
+    };
+    Game.prototype.onLoadError = function () {
+    };
     Game.prototype.setup = function () {
         var _this = this;
         // create bg
