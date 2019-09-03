@@ -4,6 +4,10 @@ self.skipWaiting();
 self.clients.claim();
 workbox.setConfig({ debug: false });
 
+const version = "1.0",
+    preCache = "PRECACHE-" + version,
+    cacheList = [ "/" ];
+
 
 
 self.addEventListener('push', (event) => {
@@ -19,7 +23,7 @@ self.addEventListener( "fetch", function ( event ) {
   event.respondWith(
       fetch( event.request )
   );
-});/*
+});
 self.addEventListener( "install", function ( event ) {
   console.log( "Installing the service worker!" );
   self.skipWaiting();
@@ -27,7 +31,7 @@ self.addEventListener( "install", function ( event ) {
       .then( cache => {
           cache.addAll( cacheList );
       } );
-} );*/
+} );
 
 self.addEventListener( "activate", function ( event ) {
   event.waitUntil(
@@ -150,8 +154,6 @@ const cacheOpaques = new workbox.cacheableResponse.Plugin({
 });
 
 
-// versioning for killswitch
-const version = 1.2
 
 
 // set custom cache parameters
