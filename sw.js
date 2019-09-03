@@ -51,11 +51,11 @@ self.addEventListener( "activate", function ( event ) {
 workbox.precaching.precacheAndRoute([
   {
     "url": "index.html",
-    "revision": "5be71d0a5b59a5448994213982828f68"
+    "revision": "761c39eabf06cd73831da1677ac8f3a4"
   },
   {
     "url": "js/app.js",
-    "revision": "de6ccf23a2808c6e30e4367710e9184a"
+    "revision": "06fabe73a26e95a96b3fa9c87d251a70"
   },
   {
     "url": "favicon.ico",
@@ -63,7 +63,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "manifest.json",
-    "revision": "d0ff17bfd50491d4ebde7b8b184c8d87"
+    "revision": "71f6fe25213f26b4a4a79fd484bc29f7"
   },
   {
     "url": "assets/_fortunechimes/bg/bg_loading.jpg",

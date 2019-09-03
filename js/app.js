@@ -13,6 +13,37 @@ var AddToHomeScreen = /** @class */ (function () {
             _this.installPromptEvent = event;
             canBeInstalledEvent();
         });
+        var _ua = window.navigator.userAgent;
+        var isIDevice = function () {
+            return (/iphone|ipod|ipad/i).test(_ua);
+        };
+        var isInWebAppChrome = function () {
+            return (window.matchMedia('(display-mode: standalone)').matches);
+        };
+        var isInWebAppiOS = function () {
+            return isIDevice() && _ua.indexOf('Safari') > -1 && _ua.indexOf('CriOS') < 0;
+        };
+        var isStandAlone = function () {
+            return isInWebAppiOS() || isInWebAppChrome();
+        };
+        var isIos = function () {
+            var userAgent = window.navigator.userAgent.toLowerCase();
+            return /iphone|ipad|ipod/.test(userAgent);
+        };
+        // Detects if device is in standalone mode
+        var isInStandaloneMode = function () { return ('standalone' in window.navigator) && (isStandAlone()); };
+        // Checks if should display install popup notification:
+        if (isIos() && !isInStandaloneMode()) {
+            // this.setState({ showInstallMessage: true });
+            this.showIosInstall();
+        }
+    };
+    AddToHomeScreen.prototype.showIosInstall = function () {
+        var iosPrompt = document.getElementById("ios-prompt");
+        iosPrompt.style.display = "block";
+        iosPrompt.addEventListener("click", function () {
+            iosPrompt.style.display = "none";
+        });
     };
     return AddToHomeScreen;
 }());
