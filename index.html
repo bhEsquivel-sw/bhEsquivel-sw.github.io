@@ -1,36 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title>Fortune Chimes</title>
-    <meta name="viewport" content="minimal-ui, width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
-    <meta name="theme-color" content="#9E9E9E">
-    <meta name="mobile-web-app-capable" content="yes" />
-    <link rel="manifest" href="manifest.json" />
-    <link rel="icon" href="favicon.ico" />
-     <!-- iPhone, retina -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>RSlot Manifest</title>
+        <meta name="description" content="">
+        
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="application-name" content="RSlot-PWA">
+        <meta name="apple-mobile-web-app-title" content="RSlot-PWA">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        
+        <link rel="apple-touch-icon" href="meta/ios/ios-appicon-120-120.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="meta/ios/ios-appicon-152-152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="meta/ios/ios-appicon-180-180.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="meta/ios/ios-appicon-120-120.png">
+        <link href="meta/ios/apple-touch-startup-image-320x460.png" media="(device-width: 320px)"
+            rel="apple-touch-startup-image">
+        <!-- iPhone (Retina) SPLASHSCREEN-->
+        <link href="meta/ios/apple-touch-startup-image-640x920.png"
+            media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+        <!-- iPad (portrait) SPLASHSCREEN-->
+        <link href="meta/ios/apple-touch-startup-image-768x1004.png" media="(device-width: 768px) and (orientation: portrait)"
+            rel="apple-touch-startup-image">
+        <!-- iPad (landscape) SPLASHSCREEN-->
+        <link href="meta/ios/apple-touch-startup-image-748x1024.png" media="(device-width: 768px) and (orientation: landscape)"
+            rel="apple-touch-startup-image">
+        <!-- iPad (Retina, portrait) SPLASHSCREEN-->
+        <link href="meta/ios/apple-touch-startup-image-1536x2008.png"
+            media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"
+            rel="apple-touch-startup-image">
+        <!-- iPad (Retina, landscape) SPLASHSCREEN-->
+        <link href="meta/ios/apple-touch-startup-image-2048x1496.png"
+            media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)"
+            rel="apple-touch-startup-image">
+        <!-- iPhone 6/7/8 -->
+        <link href="/meta/ios/apple-touch-startup-image-750x1334.png"
+            media="(device-width: 375px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+        <!-- iPhone 6 Plus/7 Plus/8 Plus -->
+        <link href="/meta/ios/apple-touch-startup-image-1242x2208.png"
+            media="(device-width: 414px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
+        
+        <meta name="msapplication-starturl" content="/">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <link href="favicon.ico" rel="shortcut icon">
+        <link rel="icon" type="image/png" href="meta/favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="meta/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="meta/favicon-96x96.png" sizes="96x96">
+        
+        <meta name="theme-color" content="#9e9e9e">
+        
+        <link rel="manifest" href="manifest.json">
+        <meta name="generator" content="PWA Starter">
 
-    <link rel="apple-touch-icon" href="meta/2048-logo-80x80.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="meta/2048-logo-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="meta/2048-logo-180x180.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="meta/2048-logo-167x167.png">
-
-    <meta name="application-name" content="SWPWA" />
-    <meta name="msapplication-square70x70logo" content="meta/2048-logo-70x70.png" />
-    <meta name="msapplication-square150x150logo" content="meta/2048-logo-152x152.png" />
-    <meta name="msapplication-wide310x150logo" content="meta/2048-logo-310x150.png" />
-    <meta name="msapplication-square310x310logo" content="meta/2048-logo-310x310.png" />
-    <meta name="msapplication-TileColor" content="#ECC400" />
-
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
 </head>
 <body>
     <script src="js/app.js"></script>
 </body>
 </html>
+<script src="js/addtohomescreen.js"></script>
+<script>
+    addToHomescreen( {
+        appID: 'com.rslotpwa.dev',
+        appName: 'RSlot-PWA',
+        lifespan: 15,
+        autostart: true,
+        skipFirstVisit: true,
+        minSessions: 1,
+        displayPace: 0,
+        customPrompt: {
+            title: "Install Mobile Slot Game Manifest?",
+            src: "meta/favicon-96x96.png",
+            cancelMsg: "Cancel",
+            installMsg: "Install"
+        }
+    } );
+</script>
 <script>
     /**
      * urlBase64ToUint8Array

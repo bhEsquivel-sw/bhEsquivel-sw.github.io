@@ -14,10 +14,44 @@ self.addEventListener('push', (event) => {
   event.waitUntil(self.registration.showNotification(title, options));
 });
 
+
+self.addEventListener( "fetch", function ( event ) {
+  event.respondWith(
+      fetch( event.request )
+  );
+});/*
+self.addEventListener( "install", function ( event ) {
+  console.log( "Installing the service worker!" );
+  self.skipWaiting();
+  caches.open( preCache )
+      .then( cache => {
+          cache.addAll( cacheList );
+      } );
+} );*/
+
+self.addEventListener( "activate", function ( event ) {
+  event.waitUntil(
+      //wholesale purge of previous version caches
+      caches.keys().then( cacheNames => {
+          cacheNames.forEach( value => {
+              if ( value.indexOf( version ) < 0 ) {
+                  caches.delete( value );
+              }
+          } );
+          console.log( "service worker activated" );
+          return;
+      } )
+  );
+} );
+
 workbox.precaching.precacheAndRoute([
   {
-    "url": "index.html",
+    "url": "index copy.html",
     "revision": "4b7557c25f69d801f74dbc87cdbcfa84"
+  },
+  {
+    "url": "index.html",
+    "revision": "325f8811cfc879a2671340a70f5576ea"
   }
 ]);
 

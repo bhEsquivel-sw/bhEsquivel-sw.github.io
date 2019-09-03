@@ -67,7 +67,7 @@ exports.Symbol = Symbol;
 Object.defineProperty(exports, "__esModule", { value: true });
 var pixi_js_1 = require("pixi.js");
 var symbol_1 = require("./game/symbol");
-var addToHomeScreen_1 = require("./addToHomeScreen");
+var addToHomeScreen_1 = require("./a2hs/addToHomeScreen");
 var button_1 = require("./game/button");
 var Game = /** @class */ (function () {
     function Game() {
@@ -122,22 +122,17 @@ var Game = /** @class */ (function () {
     };
     Game.prototype.onClickA2HS = function () {
         var _this = this;
-        try {
-            this.A2HS.installPromptEvent.prompt();
-            // Wait for the user to respond to the prompt
-            this.A2HS.installPromptEvent.userChoice.then(function (choice) {
-                if (choice.outcome === 'accepted') {
-                    console.log('User accepted the A2HS prompt');
-                }
-                else {
-                    console.log('User dismissed the A2HS prompt');
-                }
-                _this.A2HS.installPromptEvent = null;
-            });
-        }
-        catch (e) {
-            console.log(e);
-        }
+        this.A2HS.installPromptEvent.prompt();
+        // Wait for the user to respond to the prompt
+        this.A2HS.installPromptEvent.userChoice.then(function (choice) {
+            if (choice.outcome === 'accepted') {
+                console.log('User accepted the A2HS prompt');
+            }
+            else {
+                console.log('User dismissed the A2HS prompt');
+            }
+            _this.A2HS.installPromptEvent = null;
+        });
     };
     Game.prototype.update = function () {
         var speed = 2;
@@ -153,7 +148,7 @@ var Game = /** @class */ (function () {
 }());
 new Game();
 
-},{"./addToHomeScreen":1,"./game/button":2,"./game/symbol":3,"pixi.js":144}],5:[function(require,module,exports){
+},{"./a2hs/addToHomeScreen":1,"./game/button":2,"./game/symbol":3,"pixi.js":144}],5:[function(require,module,exports){
 /**
  * Bit twiddling hacks for JavaScript.
  *
