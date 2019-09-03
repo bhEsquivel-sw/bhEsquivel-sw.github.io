@@ -46,3 +46,5 @@ this.workbox.core.setCacheNameDetails({
     prefix: 'rslots-pwa',
     suffix: `v:${version}`,
 });
+
+workbox.routing.registerNavigationRoute('index.html');
