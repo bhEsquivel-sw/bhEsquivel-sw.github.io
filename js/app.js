@@ -112,12 +112,14 @@ var Game = /** @class */ (function () {
         this.A2HS = new addToHomeScreen_1.AddToHomeScreen();
         this.A2HS.initialize(function () {
             // add a2hs button
-            _this.addBtn = new button_1.Button(pixi_js_1.loader.resources['btn'].texture);
-            _this.addBtn.setPos(new PIXI.Point(60, 30));
-            _this.app.stage.addChild(_this.addBtn.sprite);
-            _this.addBtn.addClickHandler(function () {
-                _this.onClickA2HS();
-            });
+            if ((window.matchMedia('(display-mode: standalone)').matches)) {
+                _this.addBtn = new button_1.Button(pixi_js_1.loader.resources['btn'].texture);
+                _this.addBtn.setPos(new PIXI.Point(60, 30));
+                _this.app.stage.addChild(_this.addBtn.sprite);
+                _this.addBtn.addClickHandler(function () {
+                    _this.onClickA2HS();
+                });
+            }
         });
     };
     Game.prototype.onClickA2HS = function () {
