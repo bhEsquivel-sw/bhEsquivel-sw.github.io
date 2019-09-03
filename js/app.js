@@ -71,13 +71,14 @@ var addToHomeScreen_1 = require("./a2hs/addToHomeScreen");
 var button_1 = require("./game/button");
 var Game = /** @class */ (function () {
     function Game() {
+        var _this = this;
         this.moveLeft = false;
         this.symbolSprites = [];
         this.symbols = [];
         // instantiate app
         this.app = new pixi_js_1.Application({
-            width: 1280,
-            height: 760,
+            width: window.innerWidth,
+            height: window.innerHeight,
             backgroundColor: 0x1099bb,
             resolution: window.devicePixelRatio || 1,
         });
@@ -89,11 +90,18 @@ var Game = /** @class */ (function () {
         pixi_js_1.loader.add('btn', 'assets/_fortunechimes/button.png');
         // then launch app
         pixi_js_1.loader.load(this.setup.bind(this));
+        window.addEventListener("resize", function () {
+            _this.app.renderer.resize(window.innerWidth, window.innerHeight);
+            _this.bg.width = window.innerWidth;
+            _this.bg.height = window.innerHeight;
+        });
     }
     Game.prototype.setup = function () {
         var _this = this;
         // create bg
         this.bg = new pixi_js_1.Sprite(pixi_js_1.loader.resources['bg'].texture);
+        this.bg.width = window.innerWidth;
+        this.bg.height = window.innerHeight;
         this.app.stage.addChild(this.bg);
         // append hero
         for (var i = 0; i < 5; i++) {
