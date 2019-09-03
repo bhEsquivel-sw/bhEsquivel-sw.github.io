@@ -33,7 +33,7 @@ var AddToHomeScreen = /** @class */ (function () {
         // Detects if device is in standalone mode
         var isInStandaloneMode = function () { return ('standalone' in window.navigator) && (isStandAlone()); };
         // Checks if should display install popup notification:
-        if (isIos() && !isInStandaloneMode()) {
+        if (isIos()) {
             // this.setState({ showInstallMessage: true });
             this.showIosInstall();
         }
