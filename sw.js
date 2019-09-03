@@ -5,8 +5,13 @@ self.clients.claim();
 workbox.setConfig({ debug: false });
 
 const version = "1.0",
-    preCache = "PRECACHE-" + version,
-    cacheList = [ "/" ];
+    cacheList = [
+      'index.html',
+      './', // Alias for index.html
+      'js/app.js'
+    ];
+const PRECACHE = 'precache-v1';
+const RUNTIME = 'runtime';
 
 
 
@@ -19,34 +24,48 @@ self.addEventListener('push', (event) => {
 });
 
 
-self.addEventListener( "fetch", function ( event ) {
-  event.respondWith(
-      fetch( event.request )
+self.addEventListener('fetch', event => {
+  // Skip cross-origin requests, like those for Google Analytics.
+  if (event.request.url.startsWith(self.location.origin)) {
+    event.respondWith(
+      caches.match(event.request).then(cachedResponse => {
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+
+        return caches.open(RUNTIME).then(cache => {
+          return fetch(event.request).then(response => {
+            // Put a copy of the response in the runtime cache.
+            return cache.put(event.request, response.clone()).then(() => {
+              return response;
+            });
+          });
+        });
+      })
+    );
+  }
+});
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(PRECACHE)
+      .then(cache => cache.addAll(cacheList))
+      .then(self.skipWaiting())
   );
 });
-self.addEventListener( "install", function ( event ) {
-  console.log( "Installing the service worker!" );
-  self.skipWaiting();
-  caches.open( preCache )
-      .then( cache => {
-          cache.addAll( cacheList );
-      } );
-} );
 
-self.addEventListener( "activate", function ( event ) {
+
+self.addEventListener('activate', event => {
+  const currentCaches = [PRECACHE, RUNTIME];
   event.waitUntil(
-      //wholesale purge of previous version caches
-      caches.keys().then( cacheNames => {
-          cacheNames.forEach( value => {
-              if ( value.indexOf( version ) < 0 ) {
-                  caches.delete( value );
-              }
-          } );
-          console.log( "service worker activated" );
-          return;
-      } )
+    caches.keys().then(cacheNames => {
+      return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
+    }).then(cachesToDelete => {
+      return Promise.all(cachesToDelete.map(cacheToDelete => {
+        return caches.delete(cacheToDelete);
+      }));
+    }).then(() => self.clients.claim())
   );
-} );
+});
 
 workbox.precaching.precacheAndRoute([
   {
@@ -55,7 +74,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "js/app.js",
-    "revision": "06fabe73a26e95a96b3fa9c87d251a70"
+    "revision": "e6a1265e682d4f9b4a3ca172203c5a63"
   },
   {
     "url": "favicon.ico",
