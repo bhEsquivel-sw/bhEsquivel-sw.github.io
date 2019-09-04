@@ -17,25 +17,27 @@ var AddToHomeScreen = /** @class */ (function () {
         var isIDevice = function () {
             return (/iphone|ipod|ipad/i).test(_ua);
         };
-        var isInWebAppChrome = function () {
-            return (window.matchMedia('(display-mode: standalone)').matches);
-        };
-        var isInWebAppiOS = function () {
-            return isIDevice() && _ua.indexOf('Safari') > -1 && _ua.indexOf('CriOS') < 0;
-        };
-        var isStandAlone = function () {
-            return isInWebAppiOS() || isInWebAppChrome();
-        };
-        var isIos = function () {
-            var userAgent = window.navigator.userAgent.toLowerCase();
-            return /iphone|ipad|ipod/.test(userAgent);
-        };
-        // Detects if device is in standalone mode
-        var isInStandaloneMode = function () { return ('standalone' in window.navigator) && (isStandAlone()); };
-        // Checks if should display install popup notification:
-        if (isIos()) {
-            // this.setState({ showInstallMessage: true });
-            this.showIosInstall();
+        if (isIDevice()) {
+            var isInWebAppChrome_1 = function () {
+                return (window.matchMedia('(display-mode: standalone)').matches);
+            };
+            var isInWebAppiOS_1 = function () {
+                return isIDevice() && _ua.indexOf('Safari') > -1 && _ua.indexOf('CriOS') < 0;
+            };
+            var isStandAlone_1 = function () {
+                return isInWebAppiOS_1() || isInWebAppChrome_1();
+            };
+            var isIos = function () {
+                var userAgent = window.navigator.userAgent.toLowerCase();
+                return /iphone|ipad|ipod/.test(userAgent);
+            };
+            // Detects if device is in standalone mode
+            var isInStandaloneMode = function () { return ('standalone' in window.navigator) && (isStandAlone_1()); };
+            // Checks if should display install popup notification:
+            if (isIos()) {
+                // this.setState({ showInstallMessage: true });
+                this.showIosInstall();
+            }
         }
     };
     AddToHomeScreen.prototype.showIosInstall = function () {
