@@ -70,7 +70,7 @@ self.addEventListener('activate', event => {
 workbox.precaching.precacheAndRoute([
   {
     "url": "index.html",
-    "revision": "761c39eabf06cd73831da1677ac8f3a4"
+    "revision": "7e17075c82b8ff433c51adcc157d1915"
   },
   {
     "url": "js/app.js",
@@ -184,7 +184,7 @@ this.workbox.core.setCacheNameDetails({
 
 workbox.routing.registerRoute(
   /\.(?:png|jpg|jpeg|svg|atlas|json)$/,
-  workbox.strategies.cacheFirst({
+  workbox.strategies.staleWhileRevalidate({
     cacheName: 'images-cache',
     plugins: [
       new workbox.expiration.Plugin({
