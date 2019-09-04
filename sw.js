@@ -74,7 +74,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "js/app.js",
-    "revision": "e6a1265e682d4f9b4a3ca172203c5a63"
+    "revision": "deee405dc33b3dc8a52860cc88c42997"
   },
   {
     "url": "favicon.ico",
@@ -82,7 +82,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "manifest.json",
-    "revision": "71f6fe25213f26b4a4a79fd484bc29f7"
+    "revision": "d0ff17bfd50491d4ebde7b8b184c8d87"
   },
   {
     "url": "assets/_fortunechimes/bg/bg_loading.jpg",

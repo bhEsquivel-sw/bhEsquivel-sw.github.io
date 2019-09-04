@@ -1324,12 +1324,5 @@
   "theme_color": "#9e9e9e",
   "background_color": "#9e9e9e",
   "lang": "en-US",
-  "dir": "auto",
-  "prefer_related_applications": true,
-  "related_applications": [
-    {
-      "platform": "play",
-      "id": "com.rslotsdev.pwa"
-    }
-  ]
+  "dir": "auto"
 }
